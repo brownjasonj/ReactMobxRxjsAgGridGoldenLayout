@@ -4,7 +4,7 @@ import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
 import { WeatherState } from '../state/weather.state';
 
 import { SearchBar } from './search-bar.component';
-import { NavBarSearchWeather } from './navbar-search-weather.component
+import { NavBarSearchWeather } from './navbar-search-weather.component';
 
 interface Props {
     weatherState: WeatherState

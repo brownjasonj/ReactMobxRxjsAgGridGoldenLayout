@@ -19,6 +19,8 @@
   "dependencies": {
     "ag-grid": "^8.0.1",
     "ag-grid-react": "^8.0.0",
+    "golden-layout": "^1.5.7",
+    "jquery": "^3.1.1",
     "mobx": "^3.1.0",
     "mobx-react": "^4.1.0",
     "mobx-react-devtools": "^4.2.11",
