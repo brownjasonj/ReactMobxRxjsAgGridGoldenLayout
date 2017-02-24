@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { observable } from 'mobx';
 
-import { WeatherForecastService, WeatherData, Weather} from '../services/weather-forecast.service';
+import { WeatherForecastService } from '../services/weather-forecast.service';
 
 import { WeatherState } from '../state/weather.state';
 

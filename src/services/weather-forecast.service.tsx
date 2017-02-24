@@ -2,29 +2,12 @@ import * as React from 'react';
 import { Observable } from 'rxjs';
 import { RxHttpRequest } from 'rx-http-request';
 
-interface Weather {
-    main: {
-        temp: number;
-        temp_min: number;
-        temp_max: number;
-        pressure: number;
-        humidity: number;
-        sea_level: number;
-        grnd_level: number;
-    }
-}
+import { City } from '../types/city.type';
+import { WeatherData } from '../types/weather-data.type';
 
-interface WeatherData {
-    city : { 
-        name: string,
-        coord: {
-            lon: number,
-            lat: number
-        },
-        country: string,
-        population: number
-    };
-    list : Weather[];
+interface WeatherForecast {
+    city : City
+    list : WeatherData[];
 }
 
 class WeatherForecastService {
@@ -43,4 +26,4 @@ class WeatherForecastService {
     }
 }
 
-export { WeatherForecastService, WeatherData, Weather};
+export { WeatherForecastService, WeatherForecast};

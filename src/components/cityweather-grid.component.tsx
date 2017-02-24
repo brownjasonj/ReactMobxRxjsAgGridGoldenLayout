@@ -4,7 +4,7 @@ import { observer } from 'mobx-react';
 import { AgGridReact } from 'ag-grid-react';
 
 import { WeatherState } from '../state/weather.state';
-import { WeatherData } from '../services/weather-forecast.service';
+import { WeatherForecast } from '../services/weather-forecast.service';
 
 import { HeaderComponent } from './header.component';
 
@@ -91,7 +91,7 @@ class CityWeatherGrid extends React.Component<Props, {}> {
 
     @computed get cityList() {
         const cities: any[] = this.props.weatherState.cityList.map((name) => {
-                            const weatherData: WeatherData = this.props.weatherState.cityWeather.get(name);
+                            const weatherData: WeatherForecast = this.props.weatherState.cityWeather.get(name);
                             return {
                                 'name': weatherData.city.name, 
                                 'country': weatherData.city.country,
@@ -135,6 +135,7 @@ class CityWeatherGrid extends React.Component<Props, {}> {
 
     onCellClicked(event: any) {
         console.log('onCellClicked: ' + event.data.name + ', col ' + event.colIndex);
+        this.props.weatherState.selectedCity = event.data.name;
     }
 
     onRowSelected(event: any) {

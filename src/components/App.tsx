@@ -1,7 +1,8 @@
 import * as React from 'react'
 import { observer, inject } from 'mobx-react';
+import * as GoldenLayout from 'golden-layout';
 
-import { WeatherForecastService, WeatherData, Weather } from '../services/weather-forecast.service';
+import { WeatherForecastService, WeatherForecast } from '../services/weather-forecast.service';
 
 import { WeatherState } from '../state/weather.state';
 
@@ -9,7 +10,7 @@ import { SearchBar } from './search-bar.component';
 import { CityList } from './city-list.component';
 import { CityWeatherGrid } from './cityweather-grid.component';
 import { NavBar } from './navbar.component';
-import * as GoldenLayout from 'golden-layout';
+import { GoogleMap } from './google-map.component';
 
 interface Props {
     store : WeatherState ;
@@ -37,12 +38,17 @@ class App extends React.Component<any, {}> {
                         content:[
                             {
                                 type:'react-component',
+                                component: 'weathergrid',
+                                props: {weatherState: this.props.store}
+                            },
+                            {
+                                type:'react-component',
                                 component: 'navbar',
                                 props: {weatherState: this.props.store}
                             },
                             {
                                 type:'react-component',
-                                component: 'weathergrid',
+                                component: 'map',
                                 props: {weatherState: this.props.store}
                             }
                         ]
@@ -52,12 +58,7 @@ class App extends React.Component<any, {}> {
                         content:[
                             {
                                 type:'react-component',
-                                component: 'weathergrid',
-                                props: {weatherState: this.props.store}
-                            },
-                            {
-                                type:'react-component',
-                                component: 'navbar',
+                                component: 'map',
                                 props: {weatherState: this.props.store}
                             }
                         ]
@@ -67,6 +68,7 @@ class App extends React.Component<any, {}> {
         const geschaefteLayout = new GoldenLayout(layoutConfig);
         geschaefteLayout.registerComponent('navbar', NavBar);
         geschaefteLayout.registerComponent('weathergrid', CityWeatherGrid);
+        geschaefteLayout.registerComponent('map', GoogleMap);        
         geschaefteLayout.init();
     }
 
@@ -74,6 +76,7 @@ class App extends React.Component<any, {}> {
 
         return (
             <div>
+                <GoogleMap weatherState = {this.props.store} />
             </div>
         );
     }
