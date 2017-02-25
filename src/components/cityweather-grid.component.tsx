@@ -135,11 +135,11 @@ class CityWeatherGrid extends React.Component<Props, {}> {
 
     onCellClicked(event: any) {
         console.log('onCellClicked: ' + event.data.name + ', col ' + event.colIndex);
-        this.props.weatherState.selectedCity = event.data.name;
     }
 
     onRowSelected(event: any) {
         console.log('onRowSelected: ' + event.node.data.name);
+        this.props.weatherState.selectedCity = event.node.data.name;
     }
 
     onRefreshData() {

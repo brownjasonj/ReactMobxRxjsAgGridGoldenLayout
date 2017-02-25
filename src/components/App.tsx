@@ -68,14 +68,15 @@ class App extends React.Component<any, {}> {
         const geschaefteLayout = new GoldenLayout(layoutConfig);
         geschaefteLayout.registerComponent('navbar', NavBar);
         geschaefteLayout.registerComponent('weathergrid', CityWeatherGrid);
-        geschaefteLayout.registerComponent('map', GoogleMap);        
-        geschaefteLayout.init();
+        geschaefteLayout.registerComponent('map', GoogleMap); 
     }
 
     render() {
 
         return (
             <div>
+                <NavBar weatherState = {this.props.store} />
+                <CityWeatherGrid weatherState = {this.props.store} />
                 <GoogleMap weatherState = {this.props.store} />
             </div>
         );

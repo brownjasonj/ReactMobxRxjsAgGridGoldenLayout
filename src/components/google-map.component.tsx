@@ -17,12 +17,12 @@ class GoogleMap extends React.Component<Props, {}> {
 
     render() {
         const city: City = this.props.weatherState.getSelectedCity;
-        console.log("Change City to " + city);
         if (!city) 
             return (<div> No Map Available </div>);
+        console.log("Change City to " + city.name);
         return (
             <ReactGoogleMaps.GoogleMapLoader
-                containerElement={<div style={{height: '100%'}}/>}
+                containerElement={<div style={{height: '200px',width: '250px'}}/>}
                 googleMapElement={
                     <ReactGoogleMaps.GoogleMap defaultZoom={12} defaultCenter={{lat: city.coord.lat, lng: city.coord.lon}} />
                 }
