@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Observable } from 'rxjs';
-import { RxHttpRequest } from 'rx-http-request';
+import { RxHR } from '@akanass/rx-http-request';
 
 import { City } from '../types/city.type';
 import { WeatherData } from '../types/weather-data.type';
@@ -22,7 +22,7 @@ class WeatherForecastService {
 
         console.log("Request: " + url);
 
-        return RxHttpRequest.get(`${url}`, {json: true});
+        return RxHR.get(`${url}`, {json: true});
     }
 }
 
