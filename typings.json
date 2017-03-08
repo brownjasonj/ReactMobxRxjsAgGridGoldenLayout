@@ -1,11 +1,4 @@
 {
-  "dependencies": {
-    "react": "registry:npm/react#15.0.1+20170104200836",
-    "react-bootstrap": "github:react-bootstrap/react-bootstrap-typescript/index.d.ts",
-    "react-dom": "registry:npm/react-dom#15.0.1+20160826174104",
-    "react-router": "registry:npm/react-router#2.4.0+20160915183637",
-    "request": "registry:npm/request#2.69.0+20160428223725"
-  },
   "globalDependencies": {
     "google.maps": "registry:dt/google.maps#3.25.0+20161208205818",
     "jquery": "registry:dt/jquery#1.10.0+20170123093700"
