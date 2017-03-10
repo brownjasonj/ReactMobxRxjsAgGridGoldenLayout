@@ -50,21 +50,22 @@ class NavBarSearchWeather extends React.Component<Props, any> {
     }
 
     render() {
+        // pullLeft doesn't seem to be part of type defs?
         return(
-                <Navbar.Form pullLeft >
-            <form onSubmit={this.onFormSubmit}>
-                    <FormGroup controlId="search">
-                        <FormControl
-                            type="text"
-                            placeholder="Search City Weather" 
-                            value={this.term}
-                            onChange={this.onInputChange}                        
-                        />
-                    </FormGroup>
-                    {' '}
-                    <Button type="submit">Submit</Button>
-            </form>
-                </Navbar.Form>
+            <Navbar.Form pullRight > 
+                <form onSubmit={this.onFormSubmit}>
+                        <FormGroup controlId="search">
+                            <FormControl
+                                type="text"
+                                placeholder="Search City Weather" 
+                                value={this.term}
+                                onChange={this.onInputChange}                        
+                            />
+                        </FormGroup>
+                        {' '}
+                        <Button type="submit">Submit</Button>
+                </form>
+            </Navbar.Form>
         );
     }
 }
